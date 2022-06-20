@@ -9,3 +9,7 @@
 > 
 
 ## API 정의
+
+## 해야될 것 
+- 라우터 설정.
+https://carrotweb.tistory.com/112
