@@ -13,3 +13,4 @@
 ## 해야될 것 
 - 라우터 설정.
 https://carrotweb.tistory.com/112
+https://codepathfinder.com/entry/Nodejs-Express-Router-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%9D%BC%EC%9A%B0%ED%8C%85?category=980863
