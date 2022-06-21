@@ -3,16 +3,16 @@ const pg = require('pg');
 const config = {
     
     user:'postgres',
-    host:'10.1.73.14',
-    database:'xeus-gangwon-hwandonghae-v2',
-    password: 'geomex12#',
+    host:'',
+    database:'',
+    password: '',
     port : 5432,
     max: 10,
 }
 
 let pool = null;
 
-module.exports.poolConnect = (param) => {
+module.exports.poolConnect = async (param) => {
     //param.dburl
     //param.dbid
     //param.dbpw
@@ -23,7 +23,6 @@ module.exports.poolConnect = (param) => {
     }
 
     const dburlSplit = dburl.split('/');
-    console.log(dburlSplit);
     const ipport = dburlSplit[0].split(':');
     
     config.user = dbid;
@@ -33,13 +32,16 @@ module.exports.poolConnect = (param) => {
     config.host = ipport[0];
 
     pool = new pg.Pool(config);
-
-    return pool.connect((err) => {
-        if (err) return done(err)
-    });
+    
+    try {
+        const isConnect = await pool.connect();
+        return isConnect;
+    } catch ( e ) {
+        pool.end();
+        return false;
+    }
 }
 
 module.exports.query = (sql, param) => {
-
     return pool.query(sql, param);
 }

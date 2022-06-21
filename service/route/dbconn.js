@@ -7,7 +7,8 @@ const router = express.Router();
 const {poolConnect} = require('../module/db/pool.js');
 
 router.post(`/init`, async (req, res) => {
-    res.json(ApiResult(0, poolConnect(req.body)));
+    const code = !res ? 1 : 0;
+    res.json(ApiResult(code, await poolConnect(req.body)));
 });
 
 module.exports = router;
