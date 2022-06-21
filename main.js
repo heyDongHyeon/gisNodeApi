@@ -1,12 +1,12 @@
 
 const CorsInit = require('./service/module/cors/cors.js');
 
-const LayerRestAPI = require('./service/rest/layer.js');
+const LayerRoute = require('./service/route/layer.js');
 const {poolConnect} = require('./service/module/db/pool.js');
+
 poolConnect();
 
 const express = require('express');
-
 // 끝
 
 const app = express();
@@ -19,8 +19,8 @@ CorsInit(app);
 
 const port = app.listen(process.env.PORT || 5050);
 
-//각 REST 에 대한 정의는 /service/rest/*.js 에서 정의
-LayerRestAPI(app);
+//각 REST 에 대한 정의는 /service/route/*.js 에서 정의
+app.use("/layer", LayerRoute);
 
 // express 서버를 실행할 때 필요한 포트 정의 및 실행 시 callback 함수를 받습니다
 app.listen(port, () => {
