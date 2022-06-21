@@ -15,6 +15,7 @@
 > 
 > npm install
 > 
+> node main.js
 > ```
 
 ## API 정의
