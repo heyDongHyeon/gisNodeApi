@@ -5,13 +5,17 @@
 
 ## 구동 방법
 >
-> ```git init```  
+> ```
 > 
-> ```git remote add origin https://github.com/DevHyeongJun/hj-node-server.git```
+> git init  
 > 
-> ```git pull origin master```
+> git remote add origin https://github.com/DevHyeongJun/hj-node-server.git
 > 
-> ```npm install```
+> git pull origin master
+> 
+> npm install
+> 
+> ```
 
 ## API 정의
 
