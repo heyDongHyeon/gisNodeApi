@@ -4,9 +4,19 @@
 >  1. node 설치
 
 ## 구동 방법
-> ```npm install```  
-> ```npm start```  
+>
+> ```
 > 
+> git init  
+> 
+> git remote add origin https://github.com/DevHyeongJun/hj-node-server.git
+> 
+> git pull origin master
+> 
+> npm install
+> 
+> node main.js
+> ```
 
 ## API 정의
 
