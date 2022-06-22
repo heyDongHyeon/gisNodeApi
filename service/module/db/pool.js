@@ -43,5 +43,6 @@ module.exports.poolConnect = async (param) => {
 }
 
 module.exports.query = (sql, param) => {
+
     return pool.query(sql, param);
 }

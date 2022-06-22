@@ -22,11 +22,51 @@ router.get(`/list`, async (req, res) => {
  */
 router.post(`/add`, async (req, res) => {
   
-    const result = await LayerMapper.add(res.body);
+    const obj = req.body;
+    const values = [
+        obj.tblschema,
+        obj.tblnm,
+        obj.lyrnm,
+        getType(obj.type),
+        6,
+        'system'
+    ]
+
+    const result = await LayerMapper.add(values);
     const code = !res ? 1 : 0;
 
     res.json(ApiResult(code, result));
     
 });
+
+/**
+ * 레이어 추가.. 이것만 하면 끝!
+ */
+ router.post(`/mod`, async (req, res) => {
+  
+    const obj = req.body;
+    const values = [
+        obj.lyrnm,
+        obj.mgrseq,
+    ]
+
+    const result = await LayerMapper.mod(values);
+    const code = !res ? 1 : 0;
+
+    res.json(ApiResult(code, result));
+    
+});
+
+const getType = (type) => {
+    switch(type) {
+        case 'POLYGON' : 
+        case 'MULTIPOLYGON' : 
+            return 'G';
+        case 'LINESTRING' :
+            return 'L';
+        default :
+            return 'P'
+    }
+}
 
 module.exports = router;
