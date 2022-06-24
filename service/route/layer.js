@@ -57,6 +57,23 @@ router.post(`/add`, async (req, res) => {
     
 });
 
+/**
+ * 레이어 추가.. 이것만 하면 끝!
+ */
+ router.post(`/remove`, async (req, res) => {
+  
+    const obj = req.body;
+    const values = [
+        obj.mgrseq
+    ]
+
+    const result = await LayerMapper.mod(values);
+    const code = !res ? 1 : 0;
+
+    res.json(ApiResult(code, result));
+    
+});
+
 const getType = (type) => {
     switch(type) {
         case 'POLYGON' : 
