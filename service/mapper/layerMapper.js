@@ -60,6 +60,19 @@ module.exports = LayerMapper = {
         let res = await query(sql, values);
 
         return res;
+    },
+
+    remove : async (values) => {
+
+        if ( !values ) return null;
+
+        let sql = "";
+        sql += "  DELETE xeus.gis_lyr_style WHERE lyr_mgr_seq=$1;";
+        sql += "  DELETE xeus.gis_lyr_list WHERE mgr_seq=$2; ";
+
+        let res = await query(sql, values);
+
+        return res;
     }
 
 }
