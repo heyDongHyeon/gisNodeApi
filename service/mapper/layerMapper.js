@@ -20,7 +20,8 @@ module.exports = LayerMapper = {
         sql += " LEFT JOIN xeus.gis_lyr_list AS t2 ON t1.f_table_name = t2.tbl_id AND t1.f_table_schema = t2.schem_nm ";
         sql += " WHERE t1.f_table_schema IN ('public', 'xeus', 'draw', 'excel', 'shp', 'api') ";
         sql += " ORDER BY t2.mgr_seq";
-
+        
+        
         const res = await query(sql, []);
         
         return res;
