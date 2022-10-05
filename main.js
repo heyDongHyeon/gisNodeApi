@@ -24,3 +24,8 @@ app.use("/dbconn", DbconnRoute);
 app.listen(port, () => {
     console.log('서버 시작.');
 });
+
+
+app.get('/pet',function(req, res){
+    res.send('팻용폼 쇼핑을 할 수 있는 사이트입니다ssee')
+});
