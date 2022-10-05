@@ -18,6 +18,11 @@
 > node main.js
 > ```
 
+## PUSH 방법
+> git pull gisNodeApi gisNodeApi(먼저 업데이트를 하자)
+> git remote add gisNodeApi https://github.com/heyDongHyeon/gisNodeApi.git
+> git push -u gisNodeApi gisNodeApi
+
 # nodemon 설치
 
 >  npm install -g nodemon
